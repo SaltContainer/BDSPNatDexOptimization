@@ -212,8 +212,11 @@ def fitness_func(solution, solution_idx):
         trainers = [data["trainers"][x] for i,x in enumerate(toggleable_trainers) if solution[i] == 1]
         locations = set([x["location"] for x in trainers])
         pokes = team_of_trainers([x for i,x in enumerate(toggleable_trainers) if solution[i] == 1])
-        fitness = 1.0 / (len(locations) * 8 + len(trainers) * 2 + len(pokes) * 1)
-        return fitness
+        inverse_fitness = 0
+        #inverse_fitness += len(locations) * 8
+        inverse_fitness += len(trainers) * 2
+        #inverse_fitness += len(pokes) * 1
+        return 1.0 / inverse_fitness
 
 def on_fitness(ga_instance, population_fitness):
     print("Generation {gen}, Fitness {fitness}".format(gen=ga_instance.generations_completed,fitness=population_fitness))
@@ -229,15 +232,15 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
 
     # PyGAD params
     fitness_function = fitness_func
-    num_generations = 50
+    num_generations = 2000
     num_parents_mating = 4
     sol_per_pop = 8
     num_genes = len(toggleable_trainers)
     parent_selection_type = "sss"
     keep_parents = 1
     crossover_type = "single_point"
-    mutation_type = "random"
-    mutation_percent_genes = 5
+    mutation_type = "adaptive"
+    mutation_percent_genes = [30, 10]
     gene_space = [0, 1]
     
     # Run GA
@@ -256,9 +259,11 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
     ga_instance.run()
     solution, solution_fitness, solution_idx = ga_instance.best_solution()
     prediction = {x for i,x in enumerate(toggleable_trainers) if solution[i] == 1} | result_trainers
+    qty_pokes = numpy.sum([team_length(x) for x in prediction])
     print("Best solution : {prediction}".format(prediction=prediction))
     print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness=solution_fitness))
-    ga_instance.plot_fitness()
+    print("Trainers = {qty_trainers}, Pokémon = {qty_pokes}".format(qty_trainers=len(prediction),qty_pokes=qty_pokes))
+    #ga_instance.plot_fitness()
 
     output = {
         "impossible_pokemon": [x for x in result_pokes],
