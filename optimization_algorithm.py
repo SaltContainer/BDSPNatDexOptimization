@@ -191,6 +191,8 @@ def sma_greedy(trainers_file, out_file, available_values, partner_values, rematc
     # Update results by removing pokes on a single trainer
     result_pokes, result_trainers, search_pokemon, search_trainer = update_results_from_single_instances(result_pokes, result_trainers, search_pokemon, search_trainer)
 
+    # Insert greedy algo here
+
     output = {
         "impossible_pokemon": [x for x in result_pokes],
         "trainers": [data["trainers"][x] for x in result_trainers],
