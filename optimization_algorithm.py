@@ -202,21 +202,21 @@ def check_leftover_pokes(solution):
     global leftover_pokes
     trainers = [x for i,x in enumerate(toggleable_trainers) if solution[i] == 1]
     missing_pokes = leftover_pokes - team_of_trainers(trainers)
-    return len(missing_pokes)
+    return missing_pokes
 
 def fitness_func(solution, solution_idx):
     missing_pokes = check_leftover_pokes(solution)
-    if missing_pokes > 0:
-        return -missing_pokes
-    else:
-        trainers = [data["trainers"][x] for i,x in enumerate(toggleable_trainers) if solution[i] == 1]
-        locations = set([x["location"] for x in trainers])
-        pokes = team_of_trainers([x for i,x in enumerate(toggleable_trainers) if solution[i] == 1])
-        inverse_fitness = 0
-        #inverse_fitness += len(locations) * 8
-        inverse_fitness += len(trainers) * 2
-        #inverse_fitness += len(pokes) * 1
-        return 1.0 / inverse_fitness
+    trainers = [data["trainers"][x] for i,x in enumerate(toggleable_trainers) if solution[i] == 1]
+    locations = set([x["location"] for x in trainers])
+    pokes = team_of_trainers([x for i,x in enumerate(toggleable_trainers) if solution[i] == 1])
+
+    base_fitness = 1000
+    penalty = 0
+    penalty += len(missing_pokes) * 20
+    #penalty += len(locations) * 8
+    penalty += len(trainers) * 3
+    penalty += len(pokes) * 1
+    return base_fitness - penalty
 
 def on_fitness(ga_instance, population_fitness):
     print("Generation {gen}, Fitness {fitness}".format(gen=ga_instance.generations_completed,fitness=population_fitness))
@@ -260,9 +260,11 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
     solution, solution_fitness, solution_idx = ga_instance.best_solution()
     prediction = {x for i,x in enumerate(toggleable_trainers) if solution[i] == 1} | result_trainers
     qty_pokes = numpy.sum([team_length(x) for x in prediction])
+    missing_pokes = check_leftover_pokes(solution)
     print("Best solution : {prediction}".format(prediction=prediction))
     print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness=solution_fitness))
     print("Trainers = {qty_trainers}, Pokémon = {qty_pokes}".format(qty_trainers=len(prediction),qty_pokes=qty_pokes))
+    print("Missing Pokémon!!! {missing}".format(missing=list(missing_pokes)))
     #ga_instance.plot_fitness()
 
     output = {
