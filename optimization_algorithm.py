@@ -264,7 +264,8 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
     print("Best solution : {prediction}".format(prediction=prediction))
     print("Fitness value of the best solution = {solution_fitness}".format(solution_fitness=solution_fitness))
     print("Trainers = {qty_trainers}, Pokémon = {qty_pokes}".format(qty_trainers=len(prediction),qty_pokes=qty_pokes))
-    print("Missing Pokémon!!! {missing}".format(missing=list(missing_pokes)))
+    if (len(missing_pokes) > 0):
+        print("Missing Pokémon!!! {missing}".format(missing=list(missing_pokes)))
     #ga_instance.plot_fitness()
 
     output = {
