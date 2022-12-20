@@ -76,7 +76,7 @@ def dn_greedy(trainers_file, out_file, available_values, partner_values, rematch
     for trainer in search_trainer:
         for pokemon in data["trainers"][trainer]["pokemon"]:
             if pokemon in counts:
-                counts[pokemon] = counts[pokemon] + 1
+                counts[pokemon] = 1
     #can the entire dex be made with only disjoint subsets?
     #pick the trainer with the most distinct pokemon
 
