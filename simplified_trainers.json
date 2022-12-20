@@ -3385,7 +3385,7 @@
         },
         {
             "name": "Collector Fernando",
-            "location": "Route 210",
+            "location": "Café Cabin",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -3402,7 +3402,7 @@
         },
         {
             "name": "Collector Edwin",
-            "location": "Route 210",
+            "location": "Café Cabin",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -4728,7 +4728,7 @@
         },
         {
             "name": "Waitress Kati",
-            "location": "Route 210",
+            "location": "Café Cabin",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6836,7 +6836,7 @@
         },
         {
             "name": "Roughneck Kirby",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6853,7 +6853,7 @@
         },
         {
             "name": "Poké Fan Leonard",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6870,7 +6870,7 @@
         },
         {
             "name": "Poké Fan Rebekah",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6887,7 +6887,7 @@
         },
         {
             "name": "Youngster Oliver",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6904,7 +6904,7 @@
         },
         {
             "name": "Ranchers Beth",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6921,7 +6921,7 @@
         },
         {
             "name": "Ranchers Bob",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6938,7 +6938,7 @@
         },
         {
             "name": "Young Couple Mike",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6955,7 +6955,7 @@
         },
         {
             "name": "Young Couple Nat",
-            "location": "Route 209",
+            "location": "Lost Tower",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6972,7 +6972,7 @@
         },
         {
             "name": "Aroma Lady Alison",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -6989,7 +6989,7 @@
         },
         {
             "name": "Artist Ismael",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7006,7 +7006,7 @@
         },
         {
             "name": "Pokémon Breeder Kaylee",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7023,7 +7023,7 @@
         },
         {
             "name": "Cameraman Darryl",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7040,7 +7040,7 @@
         },
         {
             "name": "Collector Eugene",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7057,7 +7057,7 @@
         },
         {
             "name": "Poké Fan Meredith",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7074,7 +7074,7 @@
         },
         {
             "name": "PI Kendrick",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7091,7 +7091,7 @@
         },
         {
             "name": "Gentleman Leonardo",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7108,7 +7108,7 @@
         },
         {
             "name": "Madame Rebecca",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7125,7 +7125,7 @@
         },
         {
             "name": "Lass Blythe",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7142,7 +7142,7 @@
         },
         {
             "name": "Rich Boy Roman",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7159,7 +7159,7 @@
         },
         {
             "name": "Lady Kylie",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7176,7 +7176,7 @@
         },
         {
             "name": "Reporter Valerie",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7193,7 +7193,7 @@
         },
         {
             "name": "School Kid Esteban",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7210,7 +7210,7 @@
         },
         {
             "name": "Scientist Emilio",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7227,7 +7227,7 @@
         },
         {
             "name": "Beauty Gabriella",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7244,7 +7244,7 @@
         },
         {
             "name": "Beauty Harley",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
@@ -7261,7 +7261,7 @@
         },
         {
             "name": "Veteran Emanuel",
-            "location": "Valor Lakefront",
+            "location": "Seven Stars Restaurant",
             "starter": "-",
             "partner": false,
             "available": true,
