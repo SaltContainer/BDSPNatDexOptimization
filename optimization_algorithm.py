@@ -213,9 +213,9 @@ def fitness_func(solution, solution_idx):
     base_fitness = 1000
     penalty = 0
     penalty += len(missing_pokes) * 20
-    #penalty += len(locations) * 8
+    #penalty += len(locations) * 5
     penalty += len(trainers) * 3
-    penalty += len(pokes) * 1
+    #penalty += len(pokes) * 1
     return base_fitness - penalty
 
 def on_fitness(ga_instance, population_fitness):
@@ -233,14 +233,14 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
     # PyGAD params
     fitness_function = fitness_func
     num_generations = 2000
-    num_parents_mating = 4
-    sol_per_pop = 8
+    num_parents_mating = 100
+    sol_per_pop = 750
     num_genes = len(toggleable_trainers)
     parent_selection_type = "sss"
     keep_parents = 1
     crossover_type = "single_point"
     mutation_type = "adaptive"
-    mutation_percent_genes = [30, 10]
+    mutation_percent_genes = [60,1]
     gene_space = [0, 1]
     
     # Run GA
@@ -255,7 +255,8 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
                        crossover_type=crossover_type,
                        mutation_type=mutation_type,
                        mutation_percent_genes=mutation_percent_genes,
-                       on_fitness=on_fitness)
+                       on_fitness=on_fitness,
+                       parallel_processing=20)
     ga_instance.run()
     solution, solution_fitness, solution_idx = ga_instance.best_solution()
     prediction = {x for i,x in enumerate(toggleable_trainers) if solution[i] == 1} | result_trainers
@@ -266,7 +267,7 @@ def genetic_algo(trainers_file, out_file, available_values, partner_values, rema
     print("Trainers = {qty_trainers}, Pokémon = {qty_pokes}".format(qty_trainers=len(prediction),qty_pokes=qty_pokes))
     if (len(missing_pokes) > 0):
         print("Missing Pokémon!!! {missing}".format(missing=list(missing_pokes)))
-    #ga_instance.plot_fitness()
+    ga_instance.plot_fitness()
 
     output = {
         "impossible_pokemon": [x for x in result_pokes],

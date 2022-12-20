@@ -22,5 +22,5 @@ impossible_trainers = [319]
 
 #occurence_counts(trainers_file, count_file, available_values, partner_values, rematch_values, starter_values)
 #dn_greedy(trainers_file, dn_greedy_file, available_values, partner_values, rematch_values, starter_values)
-#genetic_algo(trainers_file, sma_greedy_file, available_values, partner_values, rematch_values, starter_values, forced_trainers, impossible_trainers)
+genetic_algo(trainers_file, sma_greedy_file, available_values, partner_values, rematch_values, starter_values, forced_trainers, impossible_trainers)
 verify_solution(solution_file, trainers_file)
