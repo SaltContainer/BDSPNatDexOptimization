@@ -27,13 +27,14 @@ def team_length(trainer):
 def at_or_default(list, index, default):
     return list[index] if 0 <= index < len(list) else default
 
-def filter_trainers(available, partner, rematch, starter):
+def filter_trainers(available, partner, rematch, starter, weekday):
     global data
     filtered_set = {x["id"] for x in data["trainers"]}
     filtered_set = {x for x in filtered_set if data["trainers"][x]["available"] in available}
     filtered_set = {x for x in filtered_set if data["trainers"][x]["partner"] in partner}
     filtered_set = {x for x in filtered_set if data["trainers"][x]["rematch"] in rematch}
     filtered_set = {x for x in filtered_set if data["trainers"][x]["starter"] in starter}
+    filtered_set = {x for x in filtered_set if data["trainers"][x]["weekday"] in weekday}
     return filtered_set
 
 def load_trainers(trainers_file):
@@ -41,10 +42,10 @@ def load_trainers(trainers_file):
     with open(trainers_file, encoding='utf8') as trainer_json:
         data = json.load(trainer_json)
 
-def occurence_counts(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values):
+def occurence_counts(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, weekday_values):
     global data
     load_trainers(trainers_file)
-    filtered_data = filter_trainers(available_values, partner_values, rematch_values, starter_values)
+    filtered_data = filter_trainers(available_values, partner_values, rematch_values, starter_values, weekday_values)
     
     counts = {x:0 for x in sinnoh_pokemon}
     for trainer in filtered_data:
@@ -55,12 +56,12 @@ def occurence_counts(trainers_file, out_file, available_values, partner_values, 
     with open(out_file, 'w', encoding='utf8') as out_json:
         json.dump(counts, out_json, ensure_ascii=False, indent=4)
 
-def dn_greedy(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values):
+def dn_greedy(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, weekday_values):
     global data
     unnecessary = set()
 
     load_trainers(trainers_file)
-    filtered_data = filter_trainers(available_values, partner_values, rematch_values, starter_values)
+    filtered_data = filter_trainers(available_values, partner_values, rematch_values, starter_values, weekday_values)
 
     search_trainer = filtered_data
 
@@ -143,10 +144,10 @@ def update_results_from_single_instances(result_pokes, result_trainers, search_p
 
     return result_pokes, result_trainers, search_pokemon, search_trainer
 
-def mandatory_trainer_calcs(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, forced_trainers, impossible_trainers):
+def mandatory_trainer_calcs(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, weekday_values, forced_trainers, impossible_trainers):
     global data
     load_trainers(trainers_file)
-    filtered_data = filter_trainers(available_values, partner_values, rematch_values, starter_values)
+    filtered_data = filter_trainers(available_values, partner_values, rematch_values, starter_values, weekday_values)
 
     search_pokemon = set(sinnoh_pokemon)
     search_trainer = filtered_data
@@ -221,8 +222,8 @@ def fitness_func(solution, solution_idx):
 def on_fitness(ga_instance, population_fitness):
     print("Generation {gen}, Fitness {fitness}".format(gen=ga_instance.generations_completed,fitness=population_fitness))
 
-def genetic_algo(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, forced_trainers, impossible_trainers):
-    result_pokes, result_trainers, search_pokemon, search_trainer = mandatory_trainer_calcs(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, forced_trainers, impossible_trainers)
+def genetic_algo(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, weekday_values, forced_trainers, impossible_trainers):
+    result_pokes, result_trainers, search_pokemon, search_trainer = mandatory_trainer_calcs(trainers_file, out_file, available_values, partner_values, rematch_values, starter_values, weekday_values, forced_trainers, impossible_trainers)
 
     # Keep toggleable trainers and leftover pokes in memory
     global toggleable_trainers
