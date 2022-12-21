@@ -214,7 +214,7 @@ def fitness_func(solution, solution_idx):
     base_fitness = 1000
     penalty = 0
     penalty += len(missing_pokes) * 20
-    #penalty += len(locations) * 5
+    penalty += len(locations) * 5
     penalty += len(trainers) * 3
     #penalty += len(pokes) * 1
     return base_fitness - penalty

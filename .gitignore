@@ -1,3 +1,4 @@
 __pycache__
 trainer_conversion
 out_*.json
+out_*.txt
